@@ -27,8 +27,11 @@ stages:
     - job: Build
       strategy:
         matrix:
+          mono612:
+            monoVersionArg: 6.12=preview-xenial
+            tagName: 6.12
           mono610:
-            monoVersionArg: 6.10=preview-xenial
+            monoVersionArg: 6.10
             tagName: 6.10
           mono608:
             monoVersionArg: 6.8
