@@ -24,7 +24,7 @@ stages:
     displayName: Build
           
     jobs:
-    - job: Build
+    - job: Mono
       strategy:
         matrix:
           mono612:
@@ -90,4 +90,18 @@ stages:
           repository: 'servarr/testimages'
           command: 'push'
           tags: 'mono-$(tagName)'
+        condition: and(succeeded(), ne(variables['build.reason'], 'PullRequest'))
+
+    - job: Alpine
+      pool:
+        vmImage: ubuntu-18.04
+      steps:
+      - task: Docker@2
+        displayName: Build and push
+        inputs:
+          containerRegistry: 'dockerhub'
+          repository: 'servarr/testimages'
+          command: buildAndPush
+          Dockerfile: alpine/Dockerfile
+          tags: alpine
         condition: and(succeeded(), ne(variables['build.reason'], 'PullRequest'))
