@@ -1,7 +1,7 @@
-FROM node:10-alpine
+FROM node:lts-alpine3.12
 
 RUN apk add --no-cache --virtual .pipeline-deps readline linux-pam \
-        && apk add bash sudo shadow mediainfo sqlite-libs \
+        && apk add bash sudo shadow mediainfo sqlite-libs chromaprint \
         ca-certificates \
         # Mono build dependencies (for libMonoPosixHelper.so)
         autoconf \
