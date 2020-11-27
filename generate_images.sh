@@ -37,7 +37,7 @@ prepOne() {
 
     echo "Building Test Docker for mono $MONO_VERSION"
     
-    docker build -t servarr/testimages:mono-$MONO_VERSION --build-arg MONO_VERSION=$MONO_VERSION --build-arg MONO_URL=$MONO_URL --file mono/complete/Dockerfile mono
+    docker build -t ghcr.io/servarr/testimages:mono-$MONO_VERSION --build-arg MONO_VERSION=$MONO_VERSION --build-arg MONO_URL=$MONO_URL --file mono/complete/Dockerfile mono
 }
 
 for MONO_VERSION_PAIR in $MONO_VERSIONS; do
