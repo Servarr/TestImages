@@ -37,3 +37,16 @@ stages:
           Dockerfile: alpine/Dockerfile
           tags: alpine
         condition: and(succeeded(), ne(variables['build.reason'], 'PullRequest'))
+    - job: linux_x86
+      pool:
+        vmImage: ubuntu-20.04
+      steps:
+      - task: Docker@2
+        displayName: Build and push
+        inputs:
+          containerRegistry: 'ghcr'
+          repository: 'servarr/testimages'
+          command: buildAndPush
+          Dockerfile: linux-x86/Dockerfile
+          tags: linux-x86
+        condition: and(succeeded(), ne(variables['build.reason'], 'PullRequest'))
