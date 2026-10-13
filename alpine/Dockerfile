@@ -1,4 +1,4 @@
-FROM node:lts-alpine3.12
+FROM node:lts-alpine3.24
 
 RUN apk add --no-cache --virtual .pipeline-deps readline linux-pam \
         && apk add bash sudo shadow mediainfo sqlite-libs chromaprint \
