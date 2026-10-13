@@ -14,7 +14,7 @@ RUN apk add --no-cache --virtual .pipeline-deps readline linux-pam \
         icu-libs \
         libgcc \
         libintl \
-        libssl1.1 \
+        libssl3 \
         libstdc++ \
         zlib \
         && apk del .pipeline-deps
